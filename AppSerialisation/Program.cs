@@ -10,7 +10,7 @@ Personne personne = new Personne();
 //// Appelle de la methode Writer
 //PersonneWriter.CreateXmlPersonne(personne);
 
-// utilisation des documents 
+//// utilisation des documents 
 
 var fichier = @"C:\FormationC#\Serialisation\AppSerialisation\serialisationXml.xml";
 if (fichier is not null)
@@ -21,7 +21,24 @@ if (fichier is not null)
 }
 
 if (fichier is not null)
-PersonneDocumentXml.AddPersonneDocXml(fichier);
+  PersonneDocumentXml.AddPersonneDocXml(fichier);
+EcritureJson.writeJson();
+
+// Serialisation d'un objet
+
+var youtubeur = new Youtubeur
+{
+    Id = 1,
+    Nom = "DIALLO",
+    titre = "Developpeur .Net",
+    Videos = new List<Video> { new Video { Titre = " serialisation en Json",Duree =108 },new Video { Titre = "Test Unitaire",Duree = 208 }
+                }
+};
+
+var json = SerialisationJson.createSerialisationObjet(youtubeur);
+
+Console.WriteLine($"{json}");
+
 
 
 
